@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "./build",
+    "rootDir": "./src",
+    "module": "esnext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "moduleResolution": "node",
+    "resolveJsonModule": false,
+    "isolatedModules": true,
+    "declaration": true,
+    "incremental": true,
+    "noImplicitAny": false,
+    "noEmitOnError": true
+  },
+  "exclude": ["./node_modules", "./build", "**/*.spec.ts"],
+  "include": ["src/**/*.ts"]
+}
