@@ -1,8 +1,12 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@src/*": ["src/*"]
+    },
     "target": "es5",
-    "outDir": "./build",
-    "rootDir": "./src",
+    "baseUrl": ".",
+    "outDir": "build",
+    "rootDir": ".",
     "module": "esnext",
     "strict": true,
     "esModuleInterop": true,
@@ -12,11 +16,12 @@
     "moduleResolution": "node",
     "resolveJsonModule": false,
     "isolatedModules": true,
-    "declaration": true,
+    "declaration": false,
+    "sourceMap": true,
     "incremental": true,
     "noImplicitAny": false,
     "noEmitOnError": true
   },
-  "exclude": ["./node_modules", "./build", "**/*.spec.ts"],
-  "include": ["src/**/*.ts"]
+  "exclude": ["node_modules", "build", "**/*.spec.ts"],
+  "include": ["**/*.ts"]
 }
