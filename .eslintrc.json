@@ -22,13 +22,11 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "import/prefer-default-export": "off",
-    "@typescript-eslint/no-explicit-any": "warn",
     "no-nested-ternary": "off",
-    "indent": ["error", "spaces"],
+    "indent": ["error", 2],
     "semi": ["error", "never"],
     "curly": ["error", "all"],
-    "no-console": "off",
+    "no-console": "error",
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
     "eqeqeq": ["error", "always"],
@@ -41,17 +39,25 @@
     "sort-imports": "error",
     "no-unused-expressions": "error",
     "no-unused-labels": "error",
-    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-unused-vars": "off",
     "no-use-before-define": "error",
     "no-unsafe-finally": "error",
     "no-unexpected-multiline": "error",
     "no-unreachable": "error",
+    "no-undef": "off",
     "accessor-pairs": "error",
     "arrow-body-style": "error",
     "complexity": ["error", 4],
     "consistent-return": "error",
     "consistent-this": ["error", "self"],
     "comma-dangle": ["error", "always-multiline"],
-    "no-trailing-spaces": "error"
+    "no-trailing-spaces": "error",
+    "prettier/prettier": "off",
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_" }
+    ]
   }
 }

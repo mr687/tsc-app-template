@@ -1,7 +1,8 @@
-import { expect } from 'chai'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 
 describe('sample test', () => {
   it('should pass', () => {
-    expect(true).to.equal(true)
+    expect(true).toBe(true)
   })
 })

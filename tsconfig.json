@@ -1,26 +1,29 @@
 {
   "compilerOptions": {
     "paths": {
-      "@src/*": ["src/*"]
+      "@core/*": ["src/core/*"]
     },
-    "target": "es5",
+    "target": "es6",
     "baseUrl": ".",
     "outDir": "build",
     "rootDir": ".",
-    "module": "esnext",
+    "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": ["es6", "dom"],
+    "types": ["reflect-metadata"],
     "moduleResolution": "node",
-    "resolveJsonModule": false,
-    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "isolatedModules": false,
     "declaration": false,
     "sourceMap": true,
     "incremental": true,
     "noImplicitAny": false,
-    "noEmitOnError": true
+    "noEmitOnError": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "exclude": ["node_modules", "build", "**/*.spec.ts"],
   "include": ["**/*.ts"]
