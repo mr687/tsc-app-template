@@ -9,5 +9,6 @@ RUN yarn build
 FROM node:17-alpine as main
 WORKDIR /app
 COPY --from=build /app /app
+ENV PORT=8080 NODE_ENV=production
 EXPOSE 8080
 CMD [ "node", "dist/bootstrap.js", "--server" ]
