@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@core/*": ["src/core/*"]
+    },
+    "target": "es6",
+    "baseUrl": ".",
+    "outDir": "build",
+    "rootDir": ".",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es6", "dom"],
+    "types": ["reflect-metadata"],
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "declaration": false,
+    "sourceMap": true,
+    "incremental": true,
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "exclude": ["node_modules", "build", "**/*.spec.ts"],
+  "include": ["**/*.ts"]
+}
