@@ -1,3 +1,5 @@
+import '@controller/index.controller'
+
 import express, { NextFunction, Request, Response } from 'express'
 import http, { Server } from 'http'
 
@@ -11,6 +13,15 @@ import { initTerminus } from '@core/terminus'
 import morgan from 'morgan'
 
 const createHttpServer = (app: express.Application) => http.createServer(app)
+const notFoundMiddleware = (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  res.status(404)
+  const err = new Error(`Not Found - ${req.originalUrl}`)
+  next(err)
+}
 const errorMiddleware = (
   err: Error,
   _req: Request,
@@ -18,9 +29,10 @@ const errorMiddleware = (
   next: NextFunction,
 ) => {
   if (err instanceof Error) {
-    return ApiResponse.error(err, res)
+    const statusCode = res.statusCode !== 200 ? res.statusCode : 500
+    const response = ApiResponse.error(err, statusCode)
+    res.status(statusCode).json(response).end()
   }
-
   return next()
 }
 
@@ -40,6 +52,7 @@ class Application extends BaseApplication {
     app.use(express.json())
   }
   protected configureAppError(app: express.Application): void {
+    app.use(notFoundMiddleware)
     app.use(errorMiddleware)
   }
   private onServerError(
@@ -85,5 +98,4 @@ class Application extends BaseApplication {
     this.startServer(server)
   }
 }
-
-new Application()
+export default Application
