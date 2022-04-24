@@ -1,37 +1,37 @@
-import { Response } from 'express'
-
-interface IResponse {
+interface IResponse<T = unknown> {
   status?: boolean
   code?: number
   message?: string
-  data?: unknown
+  data?: T
   error_statck?: string
 }
 
 class ApiResponse {
-  public constructor(
-    public readonly body: IResponse = {
-      status: true,
-      code: 200,
-      message: 'success',
-    },
-  ) {}
-
-  public static success(data: unknown, res: Response): void {
-    const responseBody = new ApiResponse({ data })
-    res.json(responseBody)
-    res.end()
+  public readonly body: IResponse
+  public constructor(_body: IResponse) {
+    this.body = Object.assign(
+      {
+        status: true,
+        code: 200,
+        message: 'success',
+        data: null,
+        error_statck: null,
+      },
+      _body,
+    )
   }
 
-  public static error(err: Error, res: Response): void {
-    const responseBody = new ApiResponse({
+  public static success<T>(data: T, message = 'success') {
+    return new ApiResponse({ data, message }).body
+  }
+
+  public static error(err: Error, code: number) {
+    return new ApiResponse({
       status: false,
-      code: res.statusCode,
+      code: code,
       message: err.message,
       error_statck: err.stack,
-    })
-    res.json(responseBody)
-    res.end()
+    }).body as IResponse<never>
   }
 }
 

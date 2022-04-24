@@ -1,18 +1,14 @@
 {
+  "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@core/*": ["src/core/*"]
+      "@core/*": ["src/core/*"],
+      "@controller/*": ["src/controllers/*"]
     },
-    "target": "es6",
     "baseUrl": ".",
-    "outDir": "build",
     "rootDir": ".",
-    "module": "commonjs",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": ["es6", "dom"],
+    "outDir": "dist",
+    "lib": ["es2021", "dom"],
     "types": ["reflect-metadata"],
     "moduleResolution": "node",
     "resolveJsonModule": true,
@@ -26,5 +22,5 @@
     "emitDecoratorMetadata": true
   },
   "exclude": ["node_modules", "build", "**/*.spec.ts"],
-  "include": ["**/*.ts"]
+  "include": ["src/**/*.ts"]
 }

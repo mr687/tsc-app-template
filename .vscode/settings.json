@@ -4,5 +4,9 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.format": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "triggerTaskOnSave.tasks": {
+    "Restart docker server": ["src/**/*"]
   }
 }

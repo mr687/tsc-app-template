@@ -1,0 +1,36 @@
+{
+  "env": {
+    "targets": {
+      "node": 17
+    }
+  },
+  "minify": true,
+  "jsc": {
+    "target": "es2021",
+    "parser": {
+      "syntax": "typescript",
+      "decorators": true,
+      "jsx": false,
+      "dynamicImport": true
+    },
+    "transform": {
+      "legacyDecorator": true,
+      "decoratorMetadata": true
+    },
+    "minify": {
+      "compress": {
+        "unused": true
+      },
+      "mangle": true
+    },
+    "paths": {
+      "@core/*": ["src/core/*"],
+      "@controller/*": ["src/controllers/*"]
+    },
+    "baseUrl": "."
+  },
+  "module": {
+    "type": "commonjs"
+  },
+  "sourceMaps": "inline"
+}
