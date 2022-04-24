@@ -76,6 +76,10 @@ class Application extends BaseApplication {
       }
     }
   }
+  private onServerClosed() {
+    // eslint-disable-next-line no-console
+    console.log('[Server] Server closed')
+  }
   private onServerListening() {
     // eslint-disable-next-line no-console
     console.log(
@@ -88,6 +92,7 @@ class Application extends BaseApplication {
     }
     server.listen(process.env.PORT, this.onServerListening)
     server.on('error', this.onServerError.bind(this, server, retryAttempts))
+    server.on('close', this.onServerClosed)
   }
   public async init(): Promise<void> {
     const invApp = new InversifyExpressServer(this.container)
